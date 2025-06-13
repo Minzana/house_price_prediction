@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Boston House Price Prediction</title>
+    <style>
+        body {
+    display: grid;
+    place-items: center;  /* Perfectly centers the form */
+    background-color: #121212;
+    color: white;
+    font-family: Arial, sans-serif;
+    height: 100vh;
+    margin: 0;
+    text-align: center;
+        .container {
+            background-color: #1e1e1e;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+            width: 400px;
+            text-align: center;
+            height:auto;
+            display:flex;
+            flex-direction:column;
+            
+        }
+
+        h2 {
+            margin-bottom: 20px;
+            color: #00ffc8;
+        }
+
+        label {
+            display: flex;
+            margin: 10px 0 5px;
+            text-align: left;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 15px;
+            border: none;
+            border-radius: 5px;
+        }
+
+        input[type="submit"] {
+            background-color: #00ffc8;
+            color: #000;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #00c6a0;
+        }
+
+        h3 {
+            margin-top: 20px;
+            color: #00ff6a;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>BOSTON HOUSE PRICE PREDICTION</h2>
+        <form action="/predict" method="post">
+
+            <label>CRIM</label>
+            <input type="text" name="CRIM"  required value="{{ entered_values['CRIM'] if entered_values else '' }}"><br>
+
+            <label>ZN</label>
+            <input type="text" name="ZN"required value="{{ entered_values['ZN'] if entered_values else '' }}"><br> 
+
+            <label>INDUS</label>
+            <input type="text" name="INDUS"required value="{{ entered_values['INDUS'] if entered_values else '' }}"><br>
+
+            <label>CHAS</label>
+            <input type="text" name="CHAS"required value="{{ entered_values['CHAS'] if entered_values else '' }}"><br>
+
+            <label>NOX</label>
+            <input type="text" name="NOX" required value="{{ entered_values['NOX'] if entered_values else '' }}"><br>
+
+            <label>RM</label>
+            <input type="text" name="RM" required value="{{ entered_values['RM'] if entered_values else '' }}"><br>
+
+            <label>AGE</label>
+            <input type="text" name="AGE" required value="{{ entered_values['AGE'] if entered_values else '' }}"><br>
+
+            <label>DIS</label>
+            <input type="text" name="DIS" required value="{{ entered_values['DIS'] if entered_values else '' }}"><br>
+
+            <label>RAD</label>
+            <input type="text" name="RAD" required value="{{ entered_values['RAD'] if entered_values else '' }}"><br>
+
+            <label>TAX</label>
+            <input type="text" name="TAX" required value="{{ entered_values['TAX'] if entered_values else '' }}"><br>
+
+            <label>PTRATIO</label>
+            <input type="text" name="PTRATIO" required value="{{ entered_values['PTRATIO'] if entered_values else '' }}"><br>
+
+            <label>B</label>
+            <input type="text" name="B" required value="{{ entered_values['B'] if entered_values else '' }}"><br>
+
+            <label>LSTAT</label>
+            <input type="text" name="LSTAT" required value="{{ entered_values['LSTAT'] if entered_values else '' }}"><br>
+
+            <input type="submit" value="Predict">
+        </form>
+
+        {% if prediction_text %}
+            <h3>{{ prediction_text }}</h3>
+        {% endif %}
+    </div>
+</body>
+</html>
